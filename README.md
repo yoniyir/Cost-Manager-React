@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Simple Cost Managment App
 
-## Available Scripts
+## Run the project locally
 
 In the project directory, you can run:
 

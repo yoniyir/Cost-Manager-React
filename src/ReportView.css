@@ -1,0 +1,81 @@
+.viewCont {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+table {
+    width: 100%;
+}
+
+.popUp {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #191d25;
+    border: 1px solid #000;
+    color: white;
+    width: 50%;
+    height: 50%;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.cost {
+    font-size: 15px;
+}
+
+.popUp th {
+    font-size: 20px;
+    color: #fbd461;
+}
+
+.closePopup {
+
+    position: absolute;
+    top: 0;
+    right: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 100%;
+    border: none;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    background-color: #191d25;
+    color: white;
+
+
+}
+
+.reportCont {
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.22);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10.2px);
+    -webkit-backdrop-filter: blur(10.2px);
+    margin-top: 20px;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .reportCont {
+        width: 100%;
+        min-width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .popUp {
+        width: 90%;
+        padding: 0;
+        margin: 0;
+        
+    }
+}
+
+.btn-full-costs{
+    margin: 10px;
+}

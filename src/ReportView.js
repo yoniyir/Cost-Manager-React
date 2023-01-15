@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
 import './ReportView.css';
-
+import LocalStorage from './LocalStorage';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -13,8 +13,9 @@ function ReportView(props) {
   const [popUp, setPopUp] = useState(false);
 
   useEffect(() => {
-    // retrieve the data from local storage 
-    const data = localStorage.getItem('costs');
+    // retrieve the data from local storage with the class LocalStorage
+    LocalStorage.getItem('costs').then((data) => {
+
     if (data) {
       // set it to the state only with same year and month
       const costs = JSON.parse(data).filter(cost => cost.year == year && cost.month == month);
@@ -36,7 +37,9 @@ function ReportView(props) {
       setCosts([]);
       setFlag(false);
     }
-  }, []);
+  }).catch
+  (err => console.log(err));
+}, []);
 
   function mapMonth(month) {
 

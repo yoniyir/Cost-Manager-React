@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import './Cost.css';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import LocalStorage from './LocalStorage';
+
 
 function CostForm() {
     const [date, setDate] = useState(null);
@@ -40,17 +42,22 @@ function CostForm() {
         // append to localstorage array of objects (costs)
         const costs = JSON.parse(localStorage.getItem('costs')) || [];
         costs.push(formData);
-        localStorage.setItem('costs', JSON.stringify(costs));
+        LocalStorage.setItem('costs', JSON.stringify(costs)).then(() => {
 
-        setText_msg('Cost added successfully');
-        // add class to text
-        document.querySelector('.text').classList.add('success');
-        document.querySelector('.text').classList.remove('error');
-        // clear form
-        setDate(null);
-        setDescription('');
-        setCategory('');
-        setSum('');
+            setText_msg('Cost added successfully');
+            // add class to text
+            document.querySelector('.text').classList.add('success');
+            document.querySelector('.text').classList.remove('error');
+            // clear form
+            setDate(null);
+            setDescription('');
+            setCategory('');
+            setSum('');
+        }).catch((err) => {
+            console.log(err);
+            setText_msg('Error adding cost');
+        });
+       
     };
 
     return (

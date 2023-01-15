@@ -3,7 +3,7 @@
 // Rotem Mor-Haim - 211905112
 
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import './Buttons.css';
 import CostForm from './CostForm';
@@ -48,7 +48,6 @@ function App() {
           {showReport && <Report />}
           {initFlag && <div className='footer'><p>By clicking the Add Cost button, a form will open and you can add a new cost</p>
             <p>By View Report button, you can view all of your costs based on the year and month you wish</p></div>}
-
 
       </header>
       <footer className='App-footer'>
